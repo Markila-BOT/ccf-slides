@@ -1,31 +1,17 @@
 import React from "react";
-import {
-  Deck,
-  Slide,
-  Heading,
-  Text,
-  Image,
-  FlexBox,
-  Box,
-  Progress,
-} from "spectacle";
-import { createApi } from "unsplash-js";
-
-// Initialize Unsplash
-const unsplash = createApi({
-  accessKey: process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY || "",
-});
+import { Deck, Slide, Heading, Text, FlexBox, Box, Progress } from "spectacle";
+import Image from "next/image";
 
 // Theme for the presentation
 const theme = {
   colors: {
-    primary: "#1a1a1a",
-    secondary: "#03A9FC",
-    tertiary: "#ffffff",
+    primary: "#000501",
+    secondary: "#73ab84",
+    tertiary: "#99d19c",
   },
   fonts: {
-    header: '"Open Sans", sans-serif',
-    text: '"Open Sans", sans-serif',
+    header: '"Geist Mono", monospace',
+    text: '"Geist Mono", monospace',
   },
   fontSizes: {
     h1: "72px",
@@ -34,54 +20,7 @@ const theme = {
   },
 };
 
-const psalmVerses = [
-  {
-    verse:
-      "Why, O LORD, do you stand far away? Why do you hide yourself in times of trouble?",
-    reference: "Psalm 10:1",
-  },
-  {
-    verse:
-      "But you do see, for you note mischief and vexation, that you may take it into your hands",
-    reference: "Psalm 10:14a",
-  },
-  {
-    verse:
-      "The LORD is king forever and ever; the nations perish from his land",
-    reference: "Psalm 10:16",
-  },
-  {
-    verse:
-      "O LORD, you hear the desire of the afflicted; you will strengthen their heart",
-    reference: "Psalm 10:17a",
-  },
-];
-
 export default function WorshipSlides() {
-  const [images, setImages] = React.useState<Array<{ url: string }>>([]);
-
-  React.useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const results = await unsplash.search.getPhotos({
-          query: "worship nature mountains sunset",
-          perPage: 4,
-        });
-
-        if (results.response) {
-          const fetchedImages = results.response.results.map((result) => ({
-            url: result.urls.regular,
-          }));
-          setImages(fetchedImages);
-        }
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
   return (
     <Deck
       theme={theme}
@@ -98,60 +37,449 @@ export default function WorshipSlides() {
         </FlexBox>
       )}
     >
-      {/* Title Slide */}
-      <Slide>
-        <FlexBox height="100%" flexDirection="column">
-          <Heading>Worship from Psalm 10</Heading>
-          <Text>A journey through prayer and praise</Text>
+      {/* Worship Image Slide - Presentable and Centered */}
+      <Slide backgroundColor="primary">
+        <Box
+          style={{
+            boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+            borderRadius: "18px",
+            overflow: "hidden",
+            background: "#222",
+            border: "2px solid #73ab84",
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "auto",
+          }}
+        >
+          <Image
+            src="/worship.jpg"
+            alt="Worship"
+            width={1200}
+            height={600}
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+              background: "#111",
+              borderRadius: "16px",
+            }}
+            priority
+          />
+        </Box>
+      </Slide>
+      {/* Definition Slide - Etymology of 'worship' */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100%"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Heading fontSize="h2" margin="0 0 1.5rem 0" color="#73ab84">
+            worship{" "}
+            <span style={{ fontWeight: 400, fontSize: "0.7em" }}>(n.)</span>
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem 2.5rem",
+              maxWidth: 800,
+              margin: "0 auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{
+                fontFamily: "serif",
+                fontStyle: "italic",
+                lineHeight: 1.6,
+              }}
+            >
+              Middle English <b>worshippe, worship</b>, &quot;high respect,
+              honor, fame,&quot; from Old English <b>worðscip, wurðscip</b>{" "}
+              (Anglian), <b>weorðscipe</b> (West Saxon) &quot;condition of being
+              worthy, dignity, glory, distinction, honor, renown,&quot; from{" "}
+              <b>weorð</b> &quot;worthy&quot; (see worth) + <b>-scipe</b> (see
+              -ship).
+            </Text>
+          </Box>
         </FlexBox>
       </Slide>
 
-      {/* Verse Slides */}
-      {psalmVerses.map((item, index) => (
-        <Slide key={index} backgroundColor="primary">
-          {images[index] && (
-            <Image
-              src={images[index].url}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                opacity: 0.3,
-              }}
-            />
-          )}
-          <FlexBox
-            height="100%"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            position="relative"
-            zIndex={1}
+      {/* Psalm 100 Slide - Grateful Praise */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Text
+            fontSize="30px"
+            color="#99d19c"
+            style={{ fontStyle: "italic", marginBottom: "2vh" }}
+          >
+            A psalm. For giving grateful praise.
+          </Text>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
           >
             <Text
-              color="tertiary"
               fontSize="text"
-              margin="0 auto"
-              textAlign="center"
-              width="80%"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
             >
-              {item.verse}
+              {`Psalm 100
+              1 Shout for joy to the Lord, all the earth.
+              2 Worship the Lord with gladness; come before him with joyful songs.
+              3 Know that the Lord is God.
+                It is he who made us, and we are his[a];
+                we are his people, the sheep of his pasture.
+              4 Enter his gates with thanksgiving and his courts with praise;
+                give thanks to him and praise his name.
+              5 For the Lord is good and his love endures forever;
+                his faithfulness continues through all generations.`}
             </Text>
-            <Text color="secondary" fontSize="24px" margin="2em 0 0">
-              {item.reference}
+          </Box>
+        </FlexBox>
+      </Slide>
+      {/* Psalm 100 Slide 1 - RECOGNIZE WHO GOD IS AND RESPOND WHOLEHEARTEDLY */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Heading
+            fontSize="h3"
+            color="#73ab84"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "2vh",
+              textAlign: "center",
+            }}
+          >
+            1) RECOGNIZE WHO GOD IS AND RESPOND WHOLEHEARTEDLY
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+            >
+              {`Psalm 100:1-2
+Shout for joy to the Lord, all the earth.
+Serve the Lord with gladness; come before him with joyful songs.`}
             </Text>
-          </FlexBox>
-        </Slide>
-      ))}
+          </Box>
+        </FlexBox>
+      </Slide>
+      {/* Psalm 100 Slide 2 - EXPRESSED IN SERVICE */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Heading
+            fontSize="h3"
+            color="#73ab84"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "2vh",
+              textAlign: "center",
+            }}
+          >
+            2) EXPRESSED IN SERVICE
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+            >
+              {`Psalm 100:2
+Serve the Lord with gladness; come before him with joyful songs.`}
+            </Text>
+          </Box>
+        </FlexBox>
+      </Slide>
+      {/* Psalm 100 Slide 3 - ANCHORED IN GOD&apos;S WORD */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Heading
+            fontSize="h3"
+            color="#73ab84"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "2vh",
+              textAlign: "center",
+            }}
+          >
+            3) ANCHORED IN GOD&apos;S WORD
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+            >
+              {`Psalm 100:3
+Know that the Lord is God.
+It is he who made us, and we are his;
+we are his people, the sheep of his pasture.`}
+            </Text>
+          </Box>
+        </FlexBox>
+      </Slide>
+      {/* Psalm 100 Slide 4 - LIVE IN THANKSGIVING */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Heading
+            fontSize="h3"
+            color="#73ab84"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "2vh",
+              textAlign: "center",
+            }}
+          >
+            4) LIVE IN THANKSGIVING
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+            >
+              {`Psalm 100:4-5
+Enter his gates with thanksgiving and his courts with praise;
+give thanks to him and praise his name.
+For the Lord is good and his love endures forever;
+his faithfulness continues through all generations.`}
+            </Text>
+          </Box>
+        </FlexBox>
+      </Slide>
+      {/* A Living Sacrifice Slide - Romans 12:1 */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Heading
+            fontSize="h2"
+            color="#73ab84"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "2vh",
+              textAlign: "center",
+            }}
+          >
+            Romans 12:1 - A Living Sacrifice
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+            >
+              {`Therefore, I urge you, brothers and sisters, in view of God's mercy, to offer your bodies as a living sacrifice, holy and pleasing to God—this is your true and proper worship.
 
+(Romans 12:1, NIV)`}
+            </Text>
+          </Box>
+        </FlexBox>
+      </Slide>
+
+      {/* Worship in Spirit and Truth Slide - John 4:24 */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100vh"
+          minHeight={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="flex-start"
+        >
+          <Heading
+            fontSize="h2"
+            color="#73ab84"
+            style={{
+              marginTop: "2vh",
+              marginBottom: "2vh",
+              textAlign: "center",
+            }}
+          >
+            John 4:24 - Worship in Spirit and Truth
+          </Heading>
+          <Box
+            style={{
+              background: "#181f1a",
+              border: "1.5px solid #99d19c",
+              borderRadius: "14px",
+              padding: "2rem",
+              maxWidth: "90vw",
+              width: "100%",
+              flex: "1 1 auto",
+              minHeight: 0,
+              overflowY: "auto",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+            }}
+          >
+            <Text
+              fontSize="text"
+              color="#fff"
+              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+            >
+              {`God is spirit, and his worshipers must worship in the Spirit and in truth.\n\n(John 4:24, NIV)`}
+            </Text>
+          </Box>
+        </FlexBox>
+      </Slide>
       {/* Final Slide */}
-      <Slide>
+      <Slide backgroundColor="primary">
         <FlexBox height="100%" flexDirection="column">
           <Heading>Thank You</Heading>
-          <Text>For joining in worship</Text>
+          <Text>For viewing the photo collage</Text>
+        </FlexBox>
+      </Slide>
+      {/* Remain in God Slide - Closing Message */}
+      <Slide backgroundColor="primary">
+        <FlexBox
+          height="100%"
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+        >
+          {/* Responsive image container with border and shadow, matching worship slide */}
+          <Box
+            style={{
+              boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+              borderRadius: "18px",
+              overflow: "hidden",
+              background: "#73ab84",
+              border: "2px solid #73ab84",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "auto",
+            }}
+          >
+            <Image
+              src="/remain.jpg"
+              alt="Remain in God rain or shine"
+              width={600}
+              height={600}
+              style={{
+                objectFit: "contain",
+                borderRadius: "16px",
+              }}
+              priority
+            />
+          </Box>
         </FlexBox>
       </Slide>
     </Deck>
