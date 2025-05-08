@@ -5,9 +5,9 @@ import Image from "next/image";
 // Theme for the presentation
 const theme = {
   colors: {
-    primary: "#000501",
-    secondary: "#73ab84",
-    tertiary: "#99d19c",
+    primary: "#fbfaf8",
+    secondary: "#f04242",
+    tertiary: "#f3f0ed",
   },
   fonts: {
     header: '"Geist Mono", monospace',
@@ -45,7 +45,7 @@ export default function WorshipSlides() {
             borderRadius: "18px",
             overflow: "hidden",
             background: "#222",
-            border: "2px solid #73ab84",
+            border: "2px solid #f04242",
             width: "100%",
             display: "flex",
             alignItems: "center",
@@ -77,14 +77,14 @@ export default function WorshipSlides() {
           alignItems="center"
           justifyContent="center"
         >
-          <Heading fontSize="h2" margin="0 0 1.5rem 0" color="#73ab84">
+          <Heading fontSize="h2" margin="0 0 1.5rem 0" color="#f04242">
             worship{" "}
             <span style={{ fontWeight: 400, fontSize: "0.7em" }}>(n.)</span>
           </Heading>
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem 2.5rem",
               maxWidth: 800,
@@ -112,52 +112,41 @@ export default function WorshipSlides() {
         </FlexBox>
       </Slide>
 
-      {/* Psalm 100 Slide - Grateful Praise */}
+      {/* Psalm 100 Slide - Grateful Praise (Image-based) */}
       <Slide backgroundColor="primary">
         <FlexBox
           height="100vh"
           minHeight={0}
           flexDirection="column"
           alignItems="center"
-          justifyContent="flex-start"
+          justifyContent="center"
         >
-          <Text
-            fontSize="30px"
-            color="#99d19c"
-            style={{ fontStyle: "italic", marginBottom: "2vh" }}
-          >
-            A psalm. For giving grateful praise.
-          </Text>
           <Box
             style={{
-              background: "#181f1a",
-              border: "1.5px solid #99d19c",
-              borderRadius: "14px",
-              padding: "2rem",
-              maxWidth: "90vw",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+              borderRadius: "18px",
+              overflow: "hidden",
               width: "100%",
-              flex: "1 1 auto",
-              minHeight: 0,
-              overflowY: "auto",
-              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+              maxWidth: "1200px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "auto",
             }}
           >
-            <Text
-              fontSize="text"
-              color="#fff"
-              style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
-            >
-              {`Psalm 100
-              1 Shout for joy to the Lord, all the earth.
-              2 Worship the Lord with gladness; come before him with joyful songs.
-              3 Know that the Lord is God.
-                It is he who made us, and we are his[a];
-                we are his people, the sheep of his pasture.
-              4 Enter his gates with thanksgiving and his courts with praise;
-                give thanks to him and praise his name.
-              5 For the Lord is good and his love endures forever;
-                his faithfulness continues through all generations.`}
-            </Text>
+            <Image
+              src="/real.jpg"
+              alt="True Worship: Get REAL"
+              width={1200}
+              height={600}
+              style={{
+                objectFit: "contain",
+                width: "100%",
+                height: "auto",
+                borderRadius: "16px",
+              }}
+              priority
+            />
           </Box>
         </FlexBox>
       </Slide>
@@ -172,7 +161,7 @@ export default function WorshipSlides() {
         >
           <Heading
             fontSize="h3"
-            color="#73ab84"
+            color="#f04242"
             style={{
               marginTop: "2vh",
               marginBottom: "2vh",
@@ -184,7 +173,7 @@ export default function WorshipSlides() {
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem",
               maxWidth: "90vw",
@@ -218,7 +207,7 @@ Serve the Lord with gladness; come before him with joyful songs.`}
         >
           <Heading
             fontSize="h3"
-            color="#73ab84"
+            color="#f04242"
             style={{
               marginTop: "2vh",
               marginBottom: "2vh",
@@ -230,7 +219,7 @@ Serve the Lord with gladness; come before him with joyful songs.`}
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem",
               maxWidth: "90vw",
@@ -263,7 +252,7 @@ Serve the Lord with gladness; come before him with joyful songs.`}
         >
           <Heading
             fontSize="h3"
-            color="#73ab84"
+            color="#f04242"
             style={{
               marginTop: "2vh",
               marginBottom: "2vh",
@@ -275,7 +264,7 @@ Serve the Lord with gladness; come before him with joyful songs.`}
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem",
               maxWidth: "90vw",
@@ -310,7 +299,7 @@ we are his people, the sheep of his pasture.`}
         >
           <Heading
             fontSize="h3"
-            color="#73ab84"
+            color="#f04242"
             style={{
               marginTop: "2vh",
               marginBottom: "2vh",
@@ -322,7 +311,7 @@ we are his people, the sheep of his pasture.`}
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem",
               maxWidth: "90vw",
@@ -358,7 +347,7 @@ his faithfulness continues through all generations.`}
         >
           <Heading
             fontSize="h2"
-            color="#73ab84"
+            color="#f04242"
             style={{
               marginTop: "2vh",
               marginBottom: "2vh",
@@ -370,7 +359,7 @@ his faithfulness continues through all generations.`}
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem",
               maxWidth: "90vw",
@@ -405,7 +394,7 @@ his faithfulness continues through all generations.`}
         >
           <Heading
             fontSize="h2"
-            color="#73ab84"
+            color="#f04242"
             style={{
               marginTop: "2vh",
               marginBottom: "2vh",
@@ -417,7 +406,7 @@ his faithfulness continues through all generations.`}
           <Box
             style={{
               background: "#181f1a",
-              border: "1.5px solid #99d19c",
+              border: "1.5px solid #f04242",
               borderRadius: "14px",
               padding: "2rem",
               maxWidth: "90vw",
@@ -438,13 +427,6 @@ his faithfulness continues through all generations.`}
           </Box>
         </FlexBox>
       </Slide>
-      {/* Final Slide */}
-      <Slide backgroundColor="primary">
-        <FlexBox height="100%" flexDirection="column">
-          <Heading>Thank You</Heading>
-          <Text>For viewing the photo collage</Text>
-        </FlexBox>
-      </Slide>
       {/* Remain in God Slide - Closing Message */}
       <Slide backgroundColor="primary">
         <FlexBox
@@ -459,8 +441,6 @@ his faithfulness continues through all generations.`}
               boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
               borderRadius: "18px",
               overflow: "hidden",
-              background: "#73ab84",
-              border: "2px solid #73ab84",
               width: "100%",
               display: "flex",
               alignItems: "center",
@@ -469,10 +449,10 @@ his faithfulness continues through all generations.`}
             }}
           >
             <Image
-              src="/remain.jpg"
+              src="/whatever.jpg"
               alt="Remain in God rain or shine"
-              width={600}
-              height={600}
+              width={1200}
+              height={1000}
               style={{
                 objectFit: "contain",
                 borderRadius: "16px",
