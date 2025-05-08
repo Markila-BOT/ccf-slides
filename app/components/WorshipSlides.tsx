@@ -189,9 +189,8 @@ export default function WorshipSlides() {
               color="#fff"
               style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
             >
-              {`Psalm 100:1-2
-Shout for joy to the Lord, all the earth.
-Serve the Lord with gladness; come before him with joyful songs.`}
+              {`Psalm 100:1
+Shout joyfully to the Lord, all the earth.`}
             </Text>
           </Box>
         </FlexBox>
@@ -236,7 +235,7 @@ Serve the Lord with gladness; come before him with joyful songs.`}
               style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
             >
               {`Psalm 100:2
-Serve the Lord with gladness; come before him with joyful songs.`}
+Serve the Lord with gladness; Come before Him with joyful singing.`}
             </Text>
           </Box>
         </FlexBox>
@@ -281,9 +280,9 @@ Serve the Lord with gladness; come before him with joyful songs.`}
               style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
             >
               {`Psalm 100:3
-Know that the Lord is God.
-It is he who made us, and we are his;
-we are his people, the sheep of his pasture.`}
+Know that the Lord Himself is God;
+It is He who has made us, and not we ourselves;
+We are His people and the sheep of His pasture.`}
             </Text>
           </Box>
         </FlexBox>
@@ -328,10 +327,12 @@ we are his people, the sheep of his pasture.`}
               style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
             >
               {`Psalm 100:4-5
-Enter his gates with thanksgiving and his courts with praise;
-give thanks to him and praise his name.
-For the Lord is good and his love endures forever;
-his faithfulness continues through all generations.`}
+Enter His gates with thanksgiving
+And His courts with praise.
+Give thanks to Him, bless His name.
+For the Lord is good;
+His loving kindness is everlasting
+And His faithfulness to all generations.`}
             </Text>
           </Box>
         </FlexBox>
