@@ -1,5 +1,14 @@
 import React from "react";
-import { Deck, Slide, Heading, Text, FlexBox, Box, Progress } from "spectacle";
+import {
+  Deck,
+  Slide,
+  Heading,
+  Text,
+  FlexBox,
+  Box,
+  Progress,
+  Appear,
+} from "spectacle";
 import Image from "next/image";
 
 // Theme for the presentation
@@ -426,6 +435,44 @@ And His faithfulness to all generations.`}
               {`God is spirit, and his worshipers must worship in the Spirit and in truth.\n\n(John 4:24, NIV)`}
             </Text>
           </Box>
+          {/* Galatians 2:20 appears after next arrow */}
+          {/* app/components/WorshipSlides.tsx */}
+          <Appear>
+            <Box
+              style={{
+                background: "#181f1a",
+                border: "1.5px solid #f04242",
+                borderRadius: "14px",
+                padding: "2rem",
+                maxWidth: "90vw",
+                width: "100%",
+                flex: "1 1 auto",
+                minHeight: 0,
+                overflowY: "auto",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+                marginTop: "2.5rem",
+              }}
+            >
+              <Text
+                fontSize="text"
+                color="#fff"
+                style={{ lineHeight: 1.5, whiteSpace: "pre-line" }}
+              >
+                {`I have been crucified with Christ and I no longer live, but Christ lives in me. The life I now live in the body, I live by faith in the Son of God, who loved me and gave himself for me.`}
+              </Text>
+              <Text
+                fontSize="text"
+                color="#aaa"
+                style={{
+                  marginTop: "1.5rem",
+                  fontSize: "1.1em",
+                  textAlign: "right",
+                }}
+              >
+                (Galatians 2:20, NIV)
+              </Text>
+            </Box>
+          </Appear>
         </FlexBox>
       </Slide>
       {/* Remain in God Slide - Closing Message */}
