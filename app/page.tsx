@@ -2,14 +2,17 @@
 
 import dynamic from "next/dynamic";
 
-const WorshipSlides = dynamic(() => import("./components/WorshipSlides"), {
-  ssr: false,
-});
+const PresentationSlides = dynamic(
+  () => import("./components/PresentationSlides"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   return (
     <main className="w-screen h-screen">
-      <WorshipSlides />
+      <PresentationSlides />
     </main>
   );
 }
