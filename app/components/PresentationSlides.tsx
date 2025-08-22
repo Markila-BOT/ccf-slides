@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Deck,
-  Slide,
-  FlexBox,
-  Box,
-  Progress,
-} from "spectacle";
+import { Deck, Slide, FlexBox, Box, Progress } from "spectacle";
 import Image from "next/image";
 
 // Modern theme for the presentation
@@ -18,7 +12,8 @@ const theme = {
     dark: "#1e293b",
   },
   fonts: {
-    header: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    header:
+      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     text: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   },
   fontSizes: {
