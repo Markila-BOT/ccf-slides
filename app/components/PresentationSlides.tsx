@@ -257,6 +257,36 @@ export default function PresentationSlides() {
           />
         </Box>
       </Slide>
+      {/* Slide 8 - d-8.png */}
+      <Slide backgroundColor="primary">
+        <Box
+          style={{
+            boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+            borderRadius: "24px",
+            overflow: "hidden",
+            background: "#fff",
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "auto",
+          }}
+        >
+          <Image
+            src="/d-8.png"
+            alt="Slide 8"
+            width={1200}
+            height={800}
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+              borderRadius: "20px",
+            }}
+            priority
+          />
+        </Box>
+      </Slide>
     </Deck>
   );
 }
